@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>搜索引擎</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow: hidden;
+}
+
+</style>
+<link href="css/font.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-search.css" media="screen" type="text/css" />
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function()
+	{
+		$(".search_button").click(function(){
+			var url=$(this).attr('url');	
+			window.open(url+$("#input").val());
+		});
+		
+		 $('.input').bind('keypress',function(event){
+            if(event.keyCode == "13")    
+            {
+                window.open("http://www.baidu.com/s?wd="+$("#input").val());
+            }
+        });
+		
+		$(".nav").click(function(){
+			var url=$(this).attr('url');	
+			alert(url);
+			window.open(url);
+		});
+	});	
+</script>
+</head>
+
+<body>
+<canvas id="canvas" width="1280" height="1024"> 您的浏览器不支持canvas标签，请您更换浏览器 </canvas>
+<script src="js/word.js"></script>
+<p id="offscreen-text" class="offscreen-text"></p>
+<p id="text" class="text">Hello World!</p>
+<!--<svg id="svg" > </svg>-->
+
+<div id="d" class="webdesigntuts-workshop"> 
+<button class='nav' url='blog/'>博客</button>
+<span>
+
+
+  <input class="input" id="input" type="search" placeholder="请输入您要搜索的内容"/>
+  <button class="search_button" url="http://www.baidu.com/s?wd=">百度一下</button>
+  <button class="search_button" url="https://www.so.com/s?q=">360搜</button>
+  <button class="search_button" url="https://www.sogou.com/web?query=">搜狗搜索</button>
+  <button class="search_button" url="https://www.google.com.hk/search?q=">Google</button>
+  <button class="search_button" url="https://cn.bing.com/search?q=">Bing</button>
+  <button class="search_button" url="https://www.zhihu.com/search?q=">知乎</button>
+  <button class="search_button" url="http://www.youdao.com/w/">有道</button>
+  <button class="search_button" url="https://so.csdn.net/so/search/s.do?q=">CSDN</button>
+  
+  <!-- <button class="search_button" url="">else</button> -->
+  
+  </span> </div>
+
+<script  src='js/index.js'></script>
+</body>
+</html>
