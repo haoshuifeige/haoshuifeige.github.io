@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>相册</title>
+  <style>
+  .img{
+			
+	}
+    .image{
+		width:300px;
+		height:300px;
+		float:left;
+	}
+	#show {
+		position:absolute;
+		margin-top:10px;
+	}
+	#show img{
+		
+	}
+  </style>
+  <script>
+  var MAX=38;	<!-- 图片数量 -->
+  var nomore=0;
+  var currentIndex=0;
+  window.onload=function(){
+		append();
+	}
+	
+	<!-- 滑动到底部自动加载图片 -->
+	window.onscroll=function(){
+		var a = document.documentElement.clientHeight;
+		var b = document.documentElement.scrollTop;
+		var c = document.documentElement.scrollHeight;
+		if(a + b == c){
+		append();
+		}
+	}
+	
+	<!-- 加载图片 -->
+    function append(){
+			if(currentIndex == MAX&&nomore == 0){
+				<!-- alert("没有更多了"); -->
+				var item = document.createElement('img');
+				var images = document.getElementById("imgs");
+				item.src = "image/nomore.png";
+				images.appendChild(item);
+				nomore = 1;
+				return;
+			}
+			var i=currentIndex;
+			for(;(i - currentIndex) < 10 && i < MAX;i++){
+				var item = document.createElement('img');
+				var images = document.getElementById("imgs");
+				item.className = "image";
+				item.setAttribute("onclick", "show(this)");
+				item.src="image/"+String(i) + ".jpg";
+				images.appendChild(item);
+			}
+			currentIndex=i;
+		}
+		
+	<!-- 单个图片展示 -->
+	 function show(image){
+			var div=document.getElementById('show');
+			div.style.display="block";
+			div.style.top=String(document.documentElement.scrollTop)+"px";
+			var simage=document.getElementById('simage');
+			simage.src=image.src;
+	 }
+	 
+	 <!-- 单个图片隐藏 -->
+	 function hide(){
+			var div=document.getElementById('show');
+			div.style.display="none";
+	 }
+  </script>
+</head>
+<body>
+	<div class="head">
+	</div>
+	
+	<div id="center">
+        <div id="imgs"> 
+        </div>
+	</div>
+	
+	<div id="show" style="display:none;">
+		<button onclick="hide()"> 关闭</button>
+		<img / id='simage'>
+	</div>	
+</body>
+</html>

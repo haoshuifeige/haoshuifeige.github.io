@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>音乐</title>
+	<meta charset=UTF-8 />
+	<style type=text/css>
+		.song{
+			background-color:AntiqueWhite;
+			margin:10px;
+		}
+	</style>
+	
+	<script>
+		window.onload=function(){
+		var MAX = 3;	<!-- 总歌曲数目 -->
+		var currentsong = 0;
+		var sname = document.getElementById("sname");
+		var list= new Array(
+			"阿婆说.MP3",
+			"Look What You Made me do.mp3",
+			"Bye Bye Bye.mp3"
+		);
+		var audio = document.getElementById("currentsong");
+		
+		<!-- 循环播放 -->
+		audio.addEventListener('ended', function () {  
+			currentsong=(currentsong+1)%MAX;
+			audio.setAttribute("src","song/"+list[currentsong]);
+			sname.innerText=list[currentsong];
+			audio.setAttribute("autoplay","autoplay");
+			}, false);
+		
+			var s = document.getElementsByClassName("song");
+			for(var i = 0;i<MAX;i++){	<!-- 列表点击事件 -->
+				s[i].onclick=function(event){
+					var name=this.getAttribute("src");
+					sname.innerText=name;
+					audio.setAttribute("src","song/"+name);
+					audio.setAttribute("autoplay","autoplay");
+					currentsong = i;
+				};
+			}
+			
+		}
+	</script>
+</head>
+
+<body>
+<div>
+	<p>当前歌曲</p><p id="sname">阿婆说</p>
+	<audio  id = "currentsong" src="song/阿婆说.MP3" controls="controls">
+		Your browser does not support the audio element.
+	</audio>
+</div>
+<div>
+	<p>播放列表<p>
+	<ul>
+		<li class="song" src="阿婆说.mp3" >阿婆说</li>
+		<li class="song" src="Look What You Made me do.mp3">Look What You Made me do-Taylor Swift</li>
+		<li class="song" src="Bye Bye Bye.mp3">Bye Bye Bye-Lovestoned</li>
+	</ul>
+</div>
+</body>
+</html>
