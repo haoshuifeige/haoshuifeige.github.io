@@ -12,14 +12,15 @@
 	
 	<script>
 		window.onload=function(){
-		var MAX = 4;	<!-- 总歌曲数目 -->
+		var MAX = 5;	<!-- 总歌曲数目 -->
 		var currentsong = 0;
 		var sname = document.getElementById("sname");
 		var list= new Array(
+			"牧马城市.mp3",
 			"阿婆说.MP3",
 			"Five Hundred Miles.mp3",
 			"Look What You Made me do.mp3",
-			"Bye Bye Bye.mp3",
+			"Bye Bye Bye.mp3"
 		);
 		var audio = document.getElementById("currentsong");
 		
@@ -48,14 +49,15 @@
 
 <body>
 <div>
-	<p>当前歌曲</p><p id="sname">阿婆说</p>
-	<audio  id = "currentsong" src="song/阿婆说.MP3" controls="controls">
+	<p>当前歌曲</p><p id="sname">牧马城市-毛不易</p>
+	<audio  id = "currentsong" src="song/牧马城市.mp3" controls="controls">
 		Your browser does not support the audio element.
 	</audio>
 </div>
 <div>
 	<p>播放列表<p>
 	<ul>
+		<li class="song" src="牧马城市.mp3" >牧马城市-毛不易</li>
 		<li class="song" src="阿婆说.mp3" >阿婆说</li>
 		<li class="song" src="Five Hundred Miles.mp3" >Five Hundred Miles-Justin Timberlake</li>
 		<li class="song" src="Look What You Made me do.mp3">Look What You Made me do-Taylor Swift</li>
