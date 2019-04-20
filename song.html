@@ -12,13 +12,14 @@
 	
 	<script>
 		window.onload=function(){
-		var MAX = 3;	<!-- 总歌曲数目 -->
+		var MAX = 4;	<!-- 总歌曲数目 -->
 		var currentsong = 0;
 		var sname = document.getElementById("sname");
 		var list= new Array(
 			"阿婆说.MP3",
+			"Five Hundred Miles.mp3",
 			"Look What You Made me do.mp3",
-			"Bye Bye Bye.mp3"
+			"Bye Bye Bye.mp3",
 		);
 		var audio = document.getElementById("currentsong");
 		
@@ -56,6 +57,7 @@
 	<p>播放列表<p>
 	<ul>
 		<li class="song" src="阿婆说.mp3" >阿婆说</li>
+		<li class="song" src="Five Hundred Miles.mp3" >Five Hundred Miles-Justin Timberlake</li>
 		<li class="song" src="Look What You Made me do.mp3">Look What You Made me do-Taylor Swift</li>
 		<li class="song" src="Bye Bye Bye.mp3">Bye Bye Bye-Lovestoned</li>
 	</ul>
